@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f6f7">
+<title>BNA–EMI · Week 12 Knowledge Base</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f5f6f7;--surface:#fff;--surface-2:#eef1f3;--text:#20262d;--muted:#66717d;
+  --line:#d9dfe4;--accent:#334155;--accent-soft:#e8edf1;--shadow:0 12px 32px rgba(20,30,40,.07);
+  --radius:18px;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#11161b;--surface:#1a222a;--surface-2:#232d37;--text:#edf1f4;--muted:#aab5bf;
+  --line:#34414d;--accent:#d6e0e8;--accent-soft:#293642;--shadow:0 12px 32px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;transition:background .2s,color .2s}
+button{font:inherit}
+a{color:inherit}
+.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{max-width:1180px;margin:auto;min-height:70px;padding:10px 22px;display:flex;align-items:center;gap:12px}
+.icon-btn,.select-btn,.nav-link,.pager button{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:11px;cursor:pointer}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;font-size:19px;flex:0 0 auto}
+.brand{min-width:0;flex:1}
+.brand strong{display:block;font-size:15px;letter-spacing:.02em}
+.brand span{display:block;color:var(--muted);font-size:12px}
+.controls{display:flex;align-items:center;gap:8px}
+.select-btn{padding:9px 12px;font-size:13px}
+.layout{max-width:1180px;margin:26px auto;padding:0 22px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:24px;align-items:start}
+.sidebar{position:sticky;top:94px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);max-height:calc(100vh - 116px);overflow:auto;transition:transform .2s,opacity .2s,width .2s}
+.sidebar h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:5px 9px 12px}
+.nav-list{display:grid;gap:5px}
+.nav-link{border:0;text-align:left;padding:10px 11px;font-size:13px;display:flex;gap:10px;align-items:center;background:transparent}
+.nav-link:hover,.nav-link.active{background:var(--accent-soft)}
+.nav-link .num{color:var(--muted);font-variant-numeric:tabular-nums}
+main{min-width:0}
+.hero{padding:30px 32px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px}
+.eyebrow{color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.15;margin:9px 0}
+.hero p{color:var(--muted);max-width:720px;margin:8px 0 0}
+.module{display:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(22px,4vw,36px);box-shadow:var(--shadow);min-height:450px}
+.module.active{display:block;animation:fade .2s ease}
+@keyframes fade{from{opacity:.55;transform:translateY(4px)}to{opacity:1;transform:none}}
+.module-kicker{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+h2{font-size:clamp(24px,3vw,32px);line-height:1.2;margin:8px 0 18px}
+h3{font-size:18px;margin:25px 0 9px}
+p{margin:10px 0}
+ul,ol{padding-left:23px}
+li{margin:7px 0}
+.callout{border:1px solid var(--line);background:var(--surface-2);border-radius:13px;padding:15px 17px;margin:18px 0}
+.callout strong{display:block;margin-bottom:3px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.tile{background:var(--surface-2);border:1px solid var(--line);border-radius:13px;padding:16px}
+.tile strong{display:block;margin-bottom:5px}
+.muted{color:var(--muted)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:17px 0}
+.flow span{border:1px solid var(--line);background:var(--surface-2);border-radius:10px;padding:9px 12px;font-weight:600}
+.flow b{color:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin:15px 0}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface-2);font-size:13px}
+.note{font-size:13px;color:var(--muted)}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:16px 0}
+.pager button{padding:11px 15px;font-size:14px}
+.pager button:disabled{opacity:.35;cursor:not-allowed}
+.pager .next{margin-left:auto}
+.top-link{display:block;text-align:center;color:var(--muted);font-size:13px;text-decoration:none;padding:10px}
+footer{max-width:1180px;margin:8px auto 30px;padding:22px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.mobile-scrim{display:none}
+body.nav-collapsed .layout{grid-template-columns:0 minmax(0,1fr)}
+body.nav-collapsed .sidebar{width:0;padding:0;border:0;opacity:0;overflow:hidden;pointer-events:none}
+@media(max-width:760px){
+ .header-inner{padding:9px 13px;gap:8px}.brand span{display:none}.brand strong{font-size:13px}
+ .controls{gap:5px}.select-btn{padding:8px;font-size:12px}
+ .layout{display:block;margin:15px auto;padding:0 13px}
+ .sidebar{position:fixed;z-index:30;top:70px;left:12px;width:min(290px,calc(100vw - 24px));max-height:calc(100vh - 84px);transform:translateX(0)}
+ body.nav-collapsed .sidebar{transform:translateX(calc(-100% - 20px));width:min(290px,calc(100vw - 24px));padding:14px;border:1px solid var(--line);opacity:1;pointer-events:auto}
+ .mobile-scrim{display:none;position:fixed;inset:70px 0 0;z-index:25;background:rgba(0,0,0,.32)}
+ body.nav-open .mobile-scrim{display:block}
+ .hero{padding:23px 21px}.module{min-height:0;padding:23px 20px}.grid2{grid-template-columns:1fr}
+ footer{padding:18px 14px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body class="nav-collapsed">
+<header class="topbar" id="top">
+  <div class="header-inner">
+    <button class="icon-btn" id="menuToggle" aria-label="Open or close module menu" aria-expanded="false">☰</button>
+    <div class="brand"><strong>BNA–EMI · WEEK 12</strong><span>Knowledge base · 25 November 2026</span></div>
+    <div class="controls">
+      <button class="select-btn" id="languageToggle" aria-label="Switch language">EN / FR</button>
+      <button class="icon-btn" id="themeToggle" aria-label="Switch light or dark theme" title="Light / dark mode">☾</button>
+    </div>
+  </div>
+</header>
+<div class="mobile-scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" aria-label="Module navigation">
+    <h2 data-en="Modules" data-fr="Modules">Modules</h2>
+    <nav class="nav-list" id="navList"></nav>
+  </aside>
+  <main>
+    <section class="hero">
+      <div class="eyebrow" data-en="Business News Analysis · English as a Medium of Instruction" data-fr="Business News Analysis · Anglais comme langue d’enseignement">Business News Analysis · English as a Medium of Instruction</div>
+      <h1 data-en="From handwritten notes to structured knowledge" data-fr="Des notes manuscrites à une connaissance structurée">From handwritten notes to structured knowledge</h1>
+      <p data-en="A bilingual, modular summary of the Week 12 in-class note. Use the menu to move between topics, switch language, or change the appearance." data-fr="Un résumé bilingue et modulaire des notes de cours de la semaine 12. Utilisez le menu pour naviguer entre les thèmes, changer de langue ou modifier l’apparence.">A bilingual, modular summary of the Week 12 in-class note. Use the menu to move between topics, switch language, or change the appearance.</p>
+    </section>
+
+    <section class="module active" id="m0">
+      <div class="module-kicker" data-en="Start here" data-fr="Commencer ici">Start here</div>
+      <h2 data-en="Week 12 overview" data-fr="Vue d’ensemble de la semaine 12">Week 12 overview</h2>
+      <p data-en="The handwritten page brings together analytical thinking, product and market concepts, structured representation, effectiveness and efficiency, AI roles, and the transformation of class notes into deliverables." data-fr="La page manuscrite rassemble la pensée analytique, les notions de produit et de marché, la représentation structurée, l’efficacité et l’efficience, les rôles de l’IA et la transformation des notes de cours en livrables.">The handwritten page brings together analytical thinking, product and market concepts, structured representation, effectiveness and efficiency, AI roles, and the transformation of class notes into deliverables.</p>
+      <div class="flow"><span data-en="Analyse" data-fr="Analyser">Analyse</span><b>→</b><span data-en="Develop product idea" data-fr="Développer l’idée de produit">Develop product idea</span><b>→</b><span data-en="Understand market" data-fr="Comprendre le marché">Understand market</span><b>→</b><span data-en="Use AI support" data-fr="Utiliser l’IA">Use AI support</span><b>→</b><span data-en="Create output" data-fr="Créer un livrable">Create output</span></div>
+      <div class="callout"><strong data-en="Source note" data-fr="Note sur la source">Source note</strong><span data-en="This SPA is based on the handwritten Week 12 note and the clarifications supplied in the class discussion. Unclear handwriting is marked as uncertain rather than silently completed." data-fr="Cette SPA s’appuie sur les notes manuscrites de la semaine 12 et les clarifications fournies dans la discussion du cours. Les passages difficiles à lire sont signalés comme incertains plutôt que complétés arbitrairement.">This SPA is based on the handwritten Week 12 note and the clarifications supplied in the class discussion. Unclear handwriting is marked as uncertain rather than silently completed.</span></div>
+      <p class="note" data-en="Select a module from the menu, or use Next page below." data-fr="Choisissez un module dans le menu ou utilisez « Page suivante » ci-dessous.">Select a module from the menu, or use Next page below.</p>
+    </section>
+
+    <section class="module" id="m1">
+      <div class="module-kicker" data-en="Module 01" data-fr="Module 01">Module 01</div>
+      <h2 data-en="Analysis and analytical thinking" data-fr="Analyse et pensée analytique">Analysis and analytical thinking</h2>
+      <p data-en="The note presents analysis as a way to break a subject or problem into smaller, understandable parts." data-fr="Les notes présentent l’analyse comme une manière de décomposer un sujet ou un problème en éléments plus petits et compréhensibles.">The note presents analysis as a way to break a subject or problem into smaller, understandable parts.</p>
+      <ol>
+        <li data-en="Decompose the subject into parts." data-fr="Décomposer le sujet en plusieurs parties.">Decompose the subject into parts.</li>
+        <li data-en="Identify its components." data-fr="Identifier ses différents composants.">Identify its components.</li>
+        <li data-en="Look for patterns." data-fr="Rechercher des tendances ou des schémas récurrents.">Look for patterns.</li>
+        <li data-en="Consider demand." data-fr="Prendre en compte la demande.">Consider demand.</li>
+        <li data-en="Formulate questions." data-fr="Formuler des questions.">Formulate questions.</li>
+      </ol>
+      <div class="callout"><strong data-en="Purpose" data-fr="Objectif">Purpose</strong><span data-en="Understand the problem before attempting to find a solution." data-fr="Comprendre le problème avant de chercher une solution.">Understand the problem before attempting to find a solution.</span></div>
+    </section>
+
+    <section class="module" id="m2">
+      <div class="module-kicker" data-en="Module 02" data-fr="Module 02">Module 02</div>
+      <h2 data-en="Product development and MVP" data-fr="Développement de produit et MVP">Product development and MVP</h2>
+      <p data-en="The note connects the Term Project (TP) discussion with an MVP and a product. MVP stands for Minimum Viable Product." data-fr="Les notes relient la discussion du Term Project (TP) à un MVP et à un produit. MVP signifie « Minimum Viable Product », soit produit minimum viable.">The note connects the Term Project (TP) discussion with an MVP and a product. MVP stands for Minimum Viable Product.</p>
+      <div class="grid2">
+        <div class="tile"><strong>MVP</strong><span data-en="Minimum Viable Product. The exact handwritten description of what can be done with it remains unclear." data-fr="Produit minimum viable. La description manuscrite exacte de ce qu’il permet de faire reste incertaine.">Minimum Viable Product. The exact handwritten description of what can be done with it remains unclear.</span></div>
+        <div class="tile"><strong data-en="Product" data-fr="Produit">Product</strong><span data-en="The product is linked to the idea of value in the note." data-fr="Dans les notes, le produit est associé à la notion de valeur.">The product is linked to the idea of value in the note.</span></div>
+      </div>
+      <div class="callout"><strong>TP</strong><span data-en="Confirmed in the class discussion as Term Project." data-fr="Confirmé dans la discussion du cours comme signifiant « Term Project » (projet de semestre).">Confirmed in the class discussion as Term Project.</span></div>
+    </section>
+
+    <section class="module" id="m3">
+      <div class="module-kicker" data-en="Module 03" data-fr="Module 03">Module 03</div>
+      <h2 data-en="Market, value and WTP" data-fr="Marché, valeur et WTP">Market, value and WTP</h2>
+      <p data-en="The handwritten diagram places the product and value alongside the market, then identifies two market-side actors." data-fr="Le schéma manuscrit place le produit et la valeur à côté du marché, puis identifie deux acteurs du marché.">The handwritten diagram places the product and value alongside the market, then identifies two market-side actors.</p>
+      <div class="grid2">
+        <div class="tile"><strong data-en="Producer" data-fr="Producteur">Producer</strong><span data-en="One of the two actors shown in the market diagram." data-fr="L’un des deux acteurs représentés dans le schéma du marché.">One of the two actors shown in the market diagram.</span></div>
+        <div class="tile"><strong data-en="Consumer" data-fr="Consommateur">Consumer</strong><span data-en="The other actor shown in the market diagram." data-fr="L’autre acteur représenté dans le schéma du marché.">The other actor shown in the market diagram.</span></div>
+      </div>
+      <p><strong>WTP</strong> — <span data-en="Likely means Willingness to Pay. This expansion is an interpretation of the abbreviation, not written out in the note." data-fr="Signifie probablement « Willingness to Pay » (disposition à payer). Cette expansion est une interprétation de l’abréviation et n’est pas écrite intégralement dans les notes.">Likely means Willingness to Pay. This expansion is an interpretation of the abbreviation, not written out in the note.</span></p>
+      <div class="flow"><span data-en="Product" data-fr="Produit">Product</span><b>→</b><span data-en="Value / WTP" data-fr="Valeur / WTP">Value / WTP</span><b>→</b><span data-en="Market" data-fr="Marché">Market</span><b>→</b><span data-en="Producer + Consumer" data-fr="Producteur + consommateur">Producer + Consumer</span></div>
+    </section>
+
+    <section class="module" id="m4">
+      <div class="module-kicker" data-en="Module 04" data-fr="Module 04">Module 04</div>
+      <h2 data-en="Representation and mind maps" data-fr="Représentation et cartes mentales">Representation and mind maps</h2>
+      <p data-en="The note refers to Google Mindmap and describes a useful representation through three characteristics:" data-fr="Les notes font référence à Google Mindmap et décrivent une représentation utile à travers trois caractéristiques :">The note refers to Google Mindmap and describes a useful representation through three characteristics:</p>
+      <ul>
+        <li><strong>Systematic</strong> — <span data-en="organized according to a method." data-fr="organisée selon une méthode.">organized according to a method.</span></li>
+        <li><strong>Structured</strong> — <span data-en="arranged in a clear structure." data-fr="organisée selon une structure claire.">arranged in a clear structure.</span></li>
+        <li><strong>Process-oriented</strong> — <span data-en="focused on the steps of a process." data-fr="axée sur les étapes d’un processus.">focused on the steps of a process.</span></li>
+      </ul>
+      <div class="callout"><strong data-en="Related handwritten idea" data-fr="Idée manuscrite associée">Related handwritten idea</strong><span data-en="The note seems to connect a new representation with insights, but the exact wording and relationship are not fully legible." data-fr="Les notes semblent relier une nouvelle représentation à des insights, mais la formulation exacte et le lien ne sont pas entièrement lisibles.">The note seems to connect a new representation with insights, but the exact wording and relationship are not fully legible.</span></div>
+    </section>
+
+    <section class="module" id="m5">
+      <div class="module-kicker" data-en="Module 05" data-fr="Module 05">Module 05</div>
+      <h2 data-en="Effectiveness vs. efficiency" data-fr="Effectiveness vs. efficiency">Effectiveness vs. efficiency</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th data-en="Concept" data-fr="Concept">Concept</th><th data-en="Meaning in the notes" data-fr="Sens dans les notes">Meaning in the notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Effectiveness</strong></td><td data-en="Achieving a good or intended result." data-fr="Atteindre un bon résultat ou le résultat visé.">Achieving a good or intended result.</td></tr>
+          <tr><td><strong>Efficiency</strong></td><td data-en="Associated with output / input. The note marks it with a cross." data-fr="Associée au rapport output / input (résultat / ressources utilisées). Les notes la marquent d’une croix.">Associated with output / input. The note marks it with a cross.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout"><strong data-en="Clarification from class discussion" data-fr="Clarification issue de la discussion en classe">Clarification from class discussion</strong><span data-en="The cross means that efficiency is less important than effectiveness in this context." data-fr="La croix signifie que l’efficience est moins importante que l’effectiveness dans ce contexte.">The cross means that efficiency is less important than effectiveness in this context.</span></div>
+    </section>
+
+    <section class="module" id="m6">
+      <div class="module-kicker" data-en="Module 06" data-fr="Module 06">Module 06</div>
+      <h2 data-en="AI roles" data-fr="Rôles de l’IA">AI roles</h2>
+      <p data-en="The handwritten note lists three AI-related roles or agent types:" data-fr="Les notes manuscrites listent trois rôles ou types d’agents liés à l’IA :">The handwritten note lists three AI-related roles or agent types:</p>
+      <div class="grid2">
+        <div class="tile"><strong>Chatbot</strong><span data-en="Linked in the note to discussion / conversation." data-fr="Associé dans les notes à la discussion / conversation.">Linked in the note to discussion / conversation.</span></div>
+        <div class="tile"><strong>Task bot</strong><span data-en="Appears to be linked to consulting. This pairing is based on handwriting and may need confirmation." data-fr="Semble être associé au conseil. Ce lien est déduit de l’écriture et peut nécessiter confirmation.">Appears to be linked to consulting. This pairing is based on handwriting and may need confirmation.</span></div>
+        <div class="tile"><strong>Coding agent</strong><span data-en="Linked to coding." data-fr="Associé au codage.">Linked to coding.</span></div>
+      </div>
+    </section>
+
+    <section class="module" id="m7">
+      <div class="module-kicker" data-en="Module 07" data-fr="Module 07">Module 07</div>
+      <h2 data-en="From in-class notes to deliverables" data-fr="Des notes de cours aux livrables">From in-class notes to deliverables</h2>
+      <p data-en="The lower part of the handwritten page appears to show a workflow that turns raw class material into a finished document." data-fr="La partie inférieure de la page manuscrite semble présenter un processus qui transforme le contenu brut du cours en document final.">The lower part of the handwritten page appears to show a workflow that turns raw class material into a finished document.</p>
+      <div class="flow"><span data-en="In-class notes" data-fr="Notes de cours">In-class notes</span><b>→</b><span data-en="Analysis" data-fr="Analyse">Analysis</span><b>→</b><span data-en="Summary" data-fr="Résumé">Summary</span><b>→</b><span data-en="Document" data-fr="Document">Document</span></div>
+      <h3 data-en="Other terms appearing in the note" data-fr="Autres termes présents dans les notes">Other terms appearing in the note</h3>
+      <ul>
+        <li><strong>Voice recording</strong> — <span data-en="voice-based input or material." data-fr="entrée ou contenu sous forme d’enregistrement vocal.">voice-based input or material.</span></li>
+        <li><strong>Image / picture</strong> — <span data-en="visual material." data-fr="contenu visuel.">visual material.</span></li>
+        <li><strong>Markdown</strong> — <span data-en="a text/document format." data-fr="un format de texte et de document.">a text/document format.</span></li>
+        <li><strong>PRD.md</strong> and <strong>handoff.md</strong> — <span data-en="file names written in the notes." data-fr="noms de fichiers inscrits dans les notes.">file names written in the notes.</span></li>
+        <li><strong>Session / team members</strong> — <span data-en="the note seems to refer to a shared AI session and handoff between team members; details are not fully explicit." data-fr="les notes semblent faire référence à une session IA partagée et à un transfert entre membres de l’équipe ; les détails ne sont pas entièrement explicites.">the note seems to refer to a shared AI session and handoff between team members; details are not fully explicit.</span></li>
+      </ul>
+    </section>
+
+    <section class="module" id="m8">
+      <div class="module-kicker" data-en="Module 08" data-fr="Module 08">Module 08</div>
+      <h2 data-en="Output formats" data-fr="Formats de sortie">Output formats</h2>
+      <p data-en="The note contains the terms SVG, SPA, Markdown, and document. It does not clearly specify whether these are alternative formats or successive stages." data-fr="Les notes contiennent les termes SVG, SPA, Markdown et document. Elles ne précisent pas clairement s’il s’agit de formats alternatifs ou d’étapes successives.">The note contains the terms SVG, SPA, Markdown, and document. It does not clearly specify whether these are alternative formats or successive stages.</p>
+      <div class="grid2">
+        <div class="tile"><strong>SVG</strong><span data-en="Vector graphic format." data-fr="Format graphique vectoriel.">Vector graphic format.</span></div>
+        <div class="tile"><strong>SPA</strong><span data-en="Single Page Application." data-fr="Single Page Application (application monopage).">Single Page Application.</span></div>
+        <div class="tile"><strong>Markdown</strong><span data-en="Plain-text markup format." data-fr="Format de balisage en texte brut.">Plain-text markup format.</span></div>
+        <div class="tile"><strong data-en="Document" data-fr="Document">Document</strong><span data-en="A final written deliverable." data-fr="Un livrable écrit final.">A final written deliverable.</span></div>
+      </div>
+      <div class="callout"><strong data-en="Overall logic" data-fr="Logique générale">Overall logic</strong><span data-en="Analyse the topic → develop the product idea → understand the market → select suitable AI support → turn notes into a structured output." data-fr="Analyser le sujet → développer l’idée de produit → comprendre le marché → choisir l’assistance IA adaptée → transformer les notes en livrable structuré.">Analyse the topic → develop the product idea → understand the market → select suitable AI support → turn notes into a structured output.</span></div>
+    </section>
+
+    <div class="pager">
+      <button id="prevBtn" type="button">← <span data-en="Previous page" data-fr="Page précédente">Previous page</span></button>
+      <button id="nextBtn" class="next" type="button"><span data-en="Next page" data-fr="Page suivante">Next page</span> →</button>
+    </div>
+    <a class="top-link" href="#top" data-en="↑ Return to the top" data-fr="↑ Retour en haut de page">↑ Return to the top</a>
+  </main>
+</div>
+<footer>
+  <span>Architect: <strong>Enzo ROCHA</strong></span>
+  <span>Version 1.0.0</span>
+  <span>© 2026 Enzo ROCHA · All rights reserved.</span>
+</footer>
+<script>
+(() => {
+  const modules = [
+    ["Overview","Vue d’ensemble"],["Analysis","Analyse"],["Product & MVP","Produit & MVP"],
+    ["Market & Value","Marché & valeur"],["Mind Maps","Cartes mentales"],
+    ["Effectiveness","Effectiveness"],["AI Roles","Rôles de l’IA"],
+    ["Notes → Deliverables","Notes → Livrables"],["Output Formats","Formats de sortie"]
+  ];
+  const nav = document.getElementById('navList');
+  const sections = [...document.querySelectorAll('.module')];
+  let current = 0, lang = 'en';
+  const body = document.body;
+  function renderNav(){
+    nav.innerHTML = '';
+    modules.forEach((item,i) => {
+      const b = document.createElement('button');
+      b.className = 'nav-link' + (i===current?' active':'');
+      b.type='button';
+      b.innerHTML = `<span class="num">${String(i).padStart(2,'0')}</span><span>${item[lang==='en'?0:1]}</span>`;
+      b.addEventListener('click',()=>show(i));
+      nav.appendChild(b);
+    });
+  }
+  function show(i){
+    current = Math.max(0,Math.min(sections.length-1,i));
+    sections.forEach((s,n)=>s.classList.toggle('active',n===current));
+    renderNav();
+    document.getElementById('prevBtn').disabled = current===0;
+    document.getElementById('nextBtn').disabled = current===sections.length-1;
+    if (window.matchMedia('(max-width:760px)').matches) closeMenu();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function closeMenu(){body.classList.add('nav-collapsed');body.classList.remove('nav-open');document.getElementById('menuToggle').setAttribute('aria-expanded','false')}
+  function toggleMenu(){
+    const collapsed=body.classList.contains('nav-collapsed');
+    body.classList.toggle('nav-collapsed',!collapsed);
+    body.classList.toggle('nav-open',collapsed && window.matchMedia('(max-width:760px)').matches);
+    document.getElementById('menuToggle').setAttribute('aria-expanded',String(collapsed));
+  }
+  document.getElementById('menuToggle').addEventListener('click',toggleMenu);
+  document.getElementById('scrim').addEventListener('click',closeMenu);
+  document.getElementById('prevBtn').addEventListener('click',()=>show(current-1));
+  document.getElementById('nextBtn').addEventListener('click',()=>show(current+1));
+  document.getElementById('languageToggle').addEventListener('click',()=>{
+    lang=lang==='en'?'fr':'en';document.documentElement.lang=lang;
+    document.querySelectorAll('[data-en][data-fr]').forEach(el=>{el.textContent=el.dataset[lang]});
+    document.getElementById('languageToggle').textContent=lang==='en'?'EN / FR':'FR / EN';
+    renderNav();
+  });
+  document.getElementById('themeToggle').addEventListener('click',()=>{
+    const dark=document.documentElement.dataset.theme!=='dark';
+    document.documentElement.dataset.theme=dark?'dark':'light';
+    document.getElementById('themeToggle').textContent=dark?'☀':'☾';
+    document.querySelector('meta[name="theme-color"]').content=dark?'#11161b':'#f5f6f7';
+  });
+  renderNav();show(0);
+})();
+</script>
+</body>
+</html>
