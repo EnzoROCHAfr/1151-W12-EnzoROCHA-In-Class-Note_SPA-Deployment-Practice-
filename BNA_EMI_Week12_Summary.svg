@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1600" viewBox="0 0 900 1600">
+  <defs>
+    <style>
+      .bg{fill:#ffffff}
+      .ink{fill:#20242a}
+      .muted{fill:#59636f}
+      .line{stroke:#66717d;stroke-width:2.5;fill:none}
+      .dash{stroke:#87919b;stroke-width:2;stroke-dasharray:7 7;fill:none}
+      .panel{fill:#fff;stroke:#303943;stroke-width:2.2}
+      .soft{fill:#f5f7f8;stroke:#59636f;stroke-width:2}
+      .node{fill:#fff;stroke:#303943;stroke-width:2}
+      .title{font:700 34px Arial,sans-serif;fill:#171b20}
+      .subtitle{font:18px Arial,sans-serif;fill:#59636f}
+      .h{font:700 23px Arial,sans-serif;fill:#20242a}
+      .body{font:19px Arial,sans-serif;fill:#20242a}
+      .small{font:16px Arial,sans-serif;fill:#59636f}
+      .tiny{font:14px Arial,sans-serif;fill:#59636f}
+      .center{text-anchor:middle}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#66717d"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="900" height="1600"/>
+  <text x="450" y="62" class="title center">BNA–EMI · WEEK 12</text>
+  <text x="450" y="96" class="subtitle center">Systematic, structured and process-oriented summary</text>
+  <text x="450" y="126" class="small center">Business News Analysis · English as a Medium of Instruction</text>
+  <text x="450" y="151" class="tiny center">In-class notes · 25 November 2026</text>
+
+  <!-- central flow -->
+  <rect x="265" y="180" width="370" height="62" rx="14" class="soft"/>
+  <text x="450" y="219" class="h center">WEEK 12 — KEY THEMES</text>
+  <path d="M450 242 V270 H155 V292 M450 270 V292 M450 270 H745 V292" class="line"/>
+  <path d="M155 292 V305 M450 292 V305 M745 292 V305" class="line" marker-end="url(#arrow)"/>
+
+  <!-- analysis -->
+  <rect x="45" y="305" width="220" height="310" rx="16" class="panel"/>
+  <text x="155" y="345" class="h center">1. ANALYSIS</text>
+  <text x="68" y="386" class="body">Break a topic into</text>
+  <text x="68" y="412" class="body">smaller parts:</text>
+  <rect x="68" y="438" width="174" height="38" rx="8" class="soft"/>
+  <text x="155" y="463" class="body center">Decompose</text>
+  <path d="M155 476 V493" class="line" marker-end="url(#arrow)"/>
+  <text x="82" y="520" class="body">• Identify components</text>
+  <text x="82" y="552" class="body">• Find patterns</text>
+  <text x="82" y="584" class="body">• Consider demand</text>
+  <text x="82" y="610" class="body">• Ask questions</text>
+
+  <!-- product -->
+  <rect x="340" y="305" width="220" height="310" rx="16" class="panel"/>
+  <text x="450" y="345" class="h center">2. PRODUCT</text>
+  <rect x="370" y="374" width="160" height="52" rx="10" class="soft"/>
+  <text x="450" y="407" class="h center">MVP</text>
+  <text x="450" y="449" class="tiny center">Minimum Viable Product</text>
+  <path d="M450 460 V481" class="line" marker-end="url(#arrow)"/>
+  <rect x="370" y="490" width="160" height="48" rx="10" class="node"/>
+  <text x="450" y="521" class="body center">Product</text>
+  <path d="M450 538 V557" class="line" marker-end="url(#arrow)"/>
+  <text x="450" y="582" class="body center">Value · WTP*</text>
+  <text x="450" y="603" class="tiny center">*Willingness to Pay (likely)</text>
+
+  <!-- market -->
+  <rect x="635" y="305" width="220" height="310" rx="16" class="panel"/>
+  <text x="745" y="345" class="h center">3. MARKET</text>
+  <rect x="670" y="382" width="150" height="58" rx="10" class="soft"/>
+  <text x="745" y="417" class="h center">Market</text>
+  <path d="M745 440 V467 M745 467 H695 V490 M745 467 H795 V490" class="line"/>
+  <rect x="650" y="490" width="95" height="58" rx="9" class="node"/>
+  <rect x="745" y="490" width="95" height="58" rx="9" class="node"/>
+  <text x="697" y="525" class="body center">Producer</text>
+  <text x="792" y="525" class="body center">Consumer</text>
+  <text x="745" y="581" class="small center">Product / value</text>
+  <text x="745" y="603" class="small center">connects to market</text>
+
+  <!-- representation -->
+  <rect x="45" y="660" width="390" height="270" rx="16" class="panel"/>
+  <text x="240" y="700" class="h center">4. REPRESENTATION &amp; MIND MAP</text>
+  <text x="75" y="745" class="body">A useful representation is:</text>
+  <rect x="75" y="765" width="330" height="42" rx="8" class="soft"/>
+  <text x="240" y="793" class="body center">Systematic</text>
+  <rect x="75" y="817" width="330" height="42" rx="8" class="soft"/>
+  <text x="240" y="845" class="body center">Structured</text>
+  <rect x="75" y="869" width="330" height="42" rx="8" class="soft"/>
+  <text x="240" y="897" class="body center">Process-oriented</text>
+
+  <!-- effectiveness -->
+  <rect x="465" y="660" width="390" height="270" rx="16" class="panel"/>
+  <text x="660" y="700" class="h center">5. EFFECTIVENESS &amp; EFFICIENCY</text>
+  <rect x="495" y="730" width="330" height="70" rx="10" class="soft"/>
+  <text x="660" y="759" class="h center">Effectiveness</text>
+  <text x="660" y="784" class="small center">Achieve the intended / good result</text>
+  <rect x="495" y="820" width="330" height="78" rx="10" class="node"/>
+  <text x="660" y="850" class="h center">Efficiency</text>
+  <text x="660" y="876" class="small center">Output / Input · marked ✗ in notes</text>
+  <text x="660" y="918" class="tiny center">Class clarification: effectiveness is prioritized here</text>
+
+  <!-- AI -->
+  <rect x="45" y="970" width="390" height="245" rx="16" class="panel"/>
+  <text x="240" y="1010" class="h center">6. AI ROLES</text>
+  <rect x="75" y="1035" width="330" height="48" rx="9" class="soft"/>
+  <text x="240" y="1066" class="body center">Chatbot → Discussion</text>
+  <rect x="75" y="1092" width="330" height="48" rx="9" class="soft"/>
+  <text x="240" y="1123" class="body center">Task bot → Consulting*</text>
+  <rect x="75" y="1149" width="330" height="48" rx="9" class="soft"/>
+  <text x="240" y="1180" class="body center">Coding agent → Coding</text>
+  <text x="240" y="1207" class="tiny center">*Pairing interpreted from handwriting</text>
+
+  <!-- workflow -->
+  <rect x="465" y="970" width="390" height="390" rx="16" class="panel"/>
+  <text x="660" y="1010" class="h center">7. NOTES → DELIVERABLE</text>
+  <rect x="535" y="1035" width="250" height="48" rx="9" class="soft"/>
+  <text x="660" y="1066" class="body center">In-class notes</text>
+  <path d="M660 1083 V1102" class="line" marker-end="url(#arrow)"/>
+  <rect x="535" y="1110" width="250" height="48" rx="9" class="soft"/>
+  <text x="660" y="1141" class="body center">Analysis</text>
+  <path d="M660 1158 V1177" class="line" marker-end="url(#arrow)"/>
+  <rect x="535" y="1185" width="250" height="48" rx="9" class="soft"/>
+  <text x="660" y="1216" class="body center">Summary</text>
+  <path d="M660 1233 V1252" class="line" marker-end="url(#arrow)"/>
+  <rect x="535" y="1260" width="250" height="48" rx="9" class="soft"/>
+  <text x="660" y="1291" class="body center">Document / output</text>
+  <text x="660" y="1334" class="small center">Related terms in notes:</text>
+  <text x="660" y="1355" class="tiny center">Voice · Image · Markdown · PRD.md · handoff.md</text>
+
+  <!-- formats and caveats -->
+  <rect x="45" y="1250" width="390" height="110" rx="16" class="panel"/>
+  <text x="240" y="1288" class="h center">8. OUTPUT FORMATS</text>
+  <text x="240" y="1320" class="body center">SVG · SPA · Markdown</text>
+  <text x="240" y="1346" class="tiny center">Exact sequence / relationship unclear in note</text>
+
+  <!-- synthesis -->
+  <rect x="45" y="1400" width="810" height="145" rx="16" class="soft"/>
+  <text x="450" y="1440" class="h center">OVERALL LOGIC</text>
+  <text x="450" y="1475" class="body center">Analyse the topic → develop the product idea → understand the market</text>
+  <text x="450" y="1505" class="body center">→ select suitable AI support → turn notes into a structured output</text>
+  <text x="450" y="1532" class="tiny center">Ambiguous handwritten links are kept cautious rather than assumed.</text>
+  <text x="450" y="1580" class="tiny center">BNA–EMI · Week 12 · Structured note map</text>
+</svg>
